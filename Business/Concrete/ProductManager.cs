@@ -25,14 +25,13 @@ namespace Business.Concrete
             {
                 return new ErrorResult("Urun ismi en az 2 karakter olmalidir");
             }
-
             _productDal.Add(product);
             return new SuccessResult();
         }
 
         public IDataResult<List<Product>> GetAll()
         {
-            if (DateTime.Now.Hour==22)
+            if (DateTime.Now.Hour == 12)
             {
                 return new ErrorDataResult<List<Product>>(Messages.MaintenanceTime);
             }
